@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://q4cgquoyw056"]
+
+[ext_resource type="Texture2D" uid="uid://2ym08eay4gf2" path="res://scenes/Screenshot 2026-05-25 211756.png" id="1_5p8wc"]
+[ext_resource type="Script" uid="uid://dgpbstmp0dfnd" path="res://scenes/settings.gd" id="1_r6d6q"]
+
+[node name="Node2D" type="Node2D" unique_id=878537811]
+script = ExtResource("1_r6d6q")
+
+[node name="Screenshot20260525211756" type="Sprite2D" parent="." unique_id=1499500192]
+position = Vector2(576.50006, 324.50003)
+scale = Vector2(0.6015625, 0.62999034)
+texture = ExtResource("1_5p8wc")
+
+[node name="Button" type="Button" parent="." unique_id=621909927]
+modulate = Color(1, 1, 1, 0)
+offset_left = 36.0
+offset_top = 30.0
+offset_right = 78.0
+offset_bottom = 55.0
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://l0cuy5iaooqg"]
+
+[ext_resource type="Script" uid="uid://dhapu4vwsbwyw" path="res://scenes/game.gd" id="1_uwrxv"]
+
+[node name="Node2D" type="Node2D" unique_id=1313975512]
+script = ExtResource("1_uwrxv")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=802495351]
+offset_right = 1153.0
+offset_bottom = 651.0
+color = Color(0, 0, 0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=941628415]
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=36431840]
+offset_left = 151.0
+offset_top = 62.0
+offset_right = 999.0
+offset_bottom = 556.0
+color = Color(1.0783365, 0.70340127, 0.15153036, 1)
+
+[node name="TextEdit" type="TextEdit" parent="ColorRect2" unique_id=1243322443]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 61.0
+offset_right = 566.0
+offset_bottom = 436.0
+text = "QUEST:
+
+-Deliver to Pablo
+-Deliver under 35 seconds
+-Stay alive
+
+Description:
+bghcfxiuytcghvjbkuytufdchgvjbk;lioyglfutckvj,hbk.iugyftckghv
+dcfhgkvjuygckbujot4dkfchgvby7to6rdigvhu7tp6rfckgvjlbh
+kjhbgcfxcglyuh;o8t7dlucg,jvh.biy8't79;dlucgvhutrf6dlyfcgvhyf
+ugyfkugvjhbiyo87tflugckvhb;iyotiflucgvjhg
+kgvjhbuy7tfdkycfghvjb;uiy8t7f6udkcghvuyftudkcgvhgu;tyfudkcgvh"
+backspace_deletes_composite_character_enabled = true
+
+[node name="Label" type="Label" parent="ColorRect2" unique_id=1678640129]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 593.0
+offset_top = 66.0
+offset_right = 841.0
+offset_bottom = 108.0
+theme_override_font_sizes/font_size = 30
+text = "GOTHAM CARTEL"
+
+[node name="Label" type="Label" parent="ColorRect2/Label" unique_id=40710749]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_top = 56.0
+offset_right = 63.0
+offset_bottom = 79.0
+text = "LEVEL: 1"
+
+[node name="Button" type="Button" parent="ColorRect2/Label" unique_id=825220940]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = -598.0
+offset_top = -69.0
+offset_right = 259.0
+offset_bottom = 428.0
+
+[connection signal="pressed" from="ColorRect2/Label/Button" to="." method="_on_button_pressed"]
