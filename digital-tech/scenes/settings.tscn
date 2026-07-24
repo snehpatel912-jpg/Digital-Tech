@@ -14,8 +14,8 @@ texture = ExtResource("1_5p8wc")
 [node name="Button" type="Button" parent="." unique_id=621909927]
 modulate = Color(1, 1, 1, 0)
 offset_left = 36.0
-offset_top = 30.0
+offset_top = 31.0
 offset_right = 78.0
-offset_bottom = 55.0
+offset_bottom = 56.0
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

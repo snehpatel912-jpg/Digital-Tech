@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://l0cuy5iaooqg"]
 
 [ext_resource type="Script" uid="uid://dhapu4vwsbwyw" path="res://scenes/game.gd" id="1_uwrxv"]
+[ext_resource type="Texture2D" uid="uid://hsfe0cx6gwfr" path="res://scenes/Screenshot 2026-05-25 211756 - Copy.png" id="2_yqjtg"]
 
 [node name="Node2D" type="Node2D" unique_id=1313975512]
 script = ExtResource("1_uwrxv")
@@ -8,7 +9,7 @@ script = ExtResource("1_uwrxv")
 [node name="ColorRect" type="ColorRect" parent="." unique_id=802495351]
 offset_right = 1153.0
 offset_bottom = 651.0
-color = Color(0, 0, 0, 1)
+color = Color(0.050980393, 0.050980393, 0.05882353, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=941628415]
 
@@ -65,4 +66,16 @@ offset_top = -69.0
 offset_right = 259.0
 offset_bottom = 428.0
 
+[node name="Screenshot20260525211756Copy" type="Sprite2D" parent="." unique_id=685135887]
+position = Vector2(64, 48)
+texture = ExtResource("2_yqjtg")
+
+[node name="Button2" type="Button" parent="Screenshot20260525211756Copy" unique_id=1850261371]
+modulate = Color(1, 1, 1, 0)
+offset_left = -40.0
+offset_top = -24.0
+offset_right = 40.0
+offset_bottom = 24.0
+
 [connection signal="pressed" from="ColorRect2/Label/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Screenshot20260525211756Copy/Button2" to="." method="_on_button_2_pressed"]

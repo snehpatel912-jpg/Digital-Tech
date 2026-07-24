@@ -1,15 +1,17 @@
 [gd_scene format=3 uid="uid://c7nlokxwjdylp"]
 
+[ext_resource type="Script" uid="uid://cqlfms5wl5h0o" path="res://cars/car.gd" id="1_0tdvo"]
 [ext_resource type="Texture2D" uid="uid://c8tc55bqhlhj0" path="res://cars/images-removebg-preview.png" id="1_g3twm"]
 
-[node name="Node2D" type="Node2D" unique_id=961113260]
+[node name="Node2D" type="CharacterBody2D" unique_id=1008124676]
+script = ExtResource("1_0tdvo")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=382332835]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=895189710]
+position = Vector2(-14.333429, 22.02164)
+scale = Vector2(0.084069625, 0.07977853)
+polygon = PackedVector2Array(139.76923, -224.15704, 140.76923, -238.15704, 139.76923, -269.15704, 139.76923, -284.15698, 133.76923, -282.15698, 139.76923, -288.15698, 139.76923, -309.15692, 141.76923, -317.15692, 150.76923, -325.15692, 157.76923, -328.15692, 170.76923, -329.15692, 183.76923, -328.15692, 190.76923, -325.15692, 197.76923, -319.15692, 200.76923, -314.15692, 201.76923, -308.15692, 201.76923, -288.15698, 207.76924, -282.15698, 201.76923, -284.15698, 201.76923, -256.15704, 200.76923, -238.15704, 201.76923, -225.15704, 199.76923, -218.15704, 191.76923, -212.15704, 183.76923, -211.15704, 156.76923, -211.15704, 143.76923, -215.15704)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=895189710]
-polygon = PackedVector2Array(-31, 45, -30, 31, -31, 0, -31, -15, -37, -13, -31, -19, -31, -40, -29, -48, -20, -56, -13, -59, 0, -60, 13, -59, 20, -56, 27, -50, 30, -45, 31, -39, 31, -19, 37, -13, 31, -15, 31, 13, 30, 31, 31, 44, 29, 51, 21, 57, 13, 58, -14, 58, -27, 54)
-
-[node name="ImagesRemovebgPreview" type="Sprite2D" parent="StaticBody2D/CollisionPolygon2D" unique_id=736365281]
-position = Vector2(-1.5258789e-05, -1)
-scale = Vector2(0.358, 0.29400003)
+[node name="ImagesRemovebgPreview" type="Sprite2D" parent="CollisionPolygon2D" unique_id=736365281]
+position = Vector2(168.47757, -271.34372)
+scale = Vector2(0.37791026, 0.30569136)
 texture = ExtResource("1_g3twm")
