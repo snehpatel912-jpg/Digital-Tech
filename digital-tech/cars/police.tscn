@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://k74qua0xbd2x"]
+
+[ext_resource type="Script" uid="uid://dh6mjhbfusect" path="res://cars/police.gd" id="1_6ivuj"]
+[ext_resource type="Texture2D" uid="uid://oksoibxbemiv" path="res://cars/images__3_-removebg-preview.png" id="1_q0itp"]
+
+[node name="Node2D" type="CharacterBody2D" unique_id=1770078643]
+script = ExtResource("1_6ivuj")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1407487268]
+position = Vector2(-9.536743e-07, 0)
+scale = Vector2(0.0568665, 0.049248975)
+polygon = PackedVector2Array(0, -152, 48, -144, 72, -128, 72, -56, 88, -40, 72, -40, 72, 72, 64, 112, 64, 128, 40, 144, -48, 144, -64, 128, -72, 96, -72, 96, -72, -40, -80, -40, -72, -56, -72, -120, -48, -144)
+
+[node name="Images3RemovebgPreview" type="Sprite2D" parent="." unique_id=1610550432]
+position = Vector2(-1.1706028e-06, 0)
+scale = Vector2(0.07199299, 0.049248975)
+texture = ExtResource("1_q0itp")

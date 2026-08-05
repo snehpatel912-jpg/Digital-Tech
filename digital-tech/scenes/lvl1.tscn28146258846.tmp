@@ -40,15 +40,10 @@ size = Vector2(128, 128)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kylad"]
 size = Vector2(128, 128)
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_0jtq1"]
-vertices = PackedVector2Array(294, 603.78906, 274, 599.78906, 274, 54.4375, 294, 54.140625, 101.85156, 598, 49.859375, 598, 42.140625, 57.851563, 94.00781, 57.09375, 677.85156, 590, 658, 590, 658, 48.789063, 669.8828, 48.617188, 1117.8594, 590, 1042.1484, 590, 1050.1484, 46, 1110.1406, 42.140625, 870, 46, 870, 590, 849.8594, 590, 841.85156, 46.09375, 494, 588.2031, 466, 583.53125, 466, 51.609375, 494, 51.203125)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(8, 9, 10, 11), PackedInt32Array(12, 13, 14, 15), PackedInt32Array(16, 17, 18, 19), PackedInt32Array(16, 19, 15), PackedInt32Array(15, 14, 16), PackedInt32Array(20, 21, 22, 23)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(32, 48, 40, 608, 112, 608, 104, 56, 264, 56, 264, 608, 304, 616, 304, 56, 456, 56, 456, 592, 504, 600, 504, 56, 648, 56, 648, 600, 688, 600, 680, 56, 832, 56, 840, 600, 880, 600, 880, 56, 1040, 56, 1032, 600, 1128, 600, 1120, 32)])
-
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_xmh5c"]
-vertices = PackedVector2Array(1111.5391, 210.0625, 1116.2031, 238, 102, 238, 110, 218.07813, 1118, 49.921875, 1118, 53.921875, 110, 45.921875, 33.859375, 42.070313, 26.132813, 629.9219, 102, 402, 1102, 402, 1102, 430, 100.828125, 430, 119.046875, 594, 1102, 594, 1102, 622.0703)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(8, 7, 6, 2), PackedInt32Array(9, 10, 11, 12), PackedInt32Array(13, 14, 15, 8), PackedInt32Array(12, 13, 8), PackedInt32Array(6, 3, 2), PackedInt32Array(12, 8, 2, 9)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(24, 32, 1128, 40, 1128, 64, 120, 56, 120, 208, 1120, 200, 1128, 248, 112, 248, 112, 392, 1112, 392, 1112, 440, 112, 440, 128, 584, 1112, 584, 1112, 632, 16, 640)])
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_olpnp"]
+vertices = PackedVector2Array(495.7578, 426, 651.47656, 426, 1077.5625, 597.75, 827.02344, 591.8828, 703.6719, 588.9922, 653.8125, 587.8125, 475.03125, 58, 474.60156, 50.4375, 655.78906, 58, 97.27344, 64.63281, 97.578125, 57.617188, 277.84375, 50.40625, 277.72656, 58.609375, 275.59375, 207.6875, 1078, 65.421875, 1078, 213.92188, 1048.4766, 213.6875, 1046.3281, 63.570313, 270.04688, 596.28906, 66, 597.90625, 66, 426, 81.078125, 426, 270.28906, 578.8281, 653.8906, 593.25, 505.2422, 594.4297, 504.67188, 584.3203, 866, 58, 866, 50, 1046.1406, 50, 703.7031, 592.85156, 272.4922, 426, 90.921875, 206.27344, 66, 206.07031, 66, 65.65625, 483.54688, 209.29688, 296.03125, 58, 648.35156, 210.57813, 1051.5234, 426, 1070.4063, 426, 866, 426, 866, 212.28125)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5), PackedInt32Array(6, 7, 8), PackedInt32Array(9, 10, 11, 12, 13), PackedInt32Array(14, 15, 16, 17), PackedInt32Array(18, 19, 20, 21, 22), PackedInt32Array(0, 5, 23, 24, 25), PackedInt32Array(26, 27, 28, 17), PackedInt32Array(3, 29, 4), PackedInt32Array(0, 25, 22, 30), PackedInt32Array(13, 30, 22, 21, 31, 9), PackedInt32Array(31, 32, 33, 9), PackedInt32Array(34, 13, 12, 35, 6), PackedInt32Array(34, 6, 8, 36, 0), PackedInt32Array(37, 38, 2), PackedInt32Array(37, 2, 39), PackedInt32Array(16, 37, 39, 40), PackedInt32Array(26, 17, 16, 40, 36, 8), PackedInt32Array(0, 36, 1), PackedInt32Array(2, 1, 39)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(56, 56, 296, 48, 504, 48, 680, 48, 952, 48, 1088, 56, 1088, 224, 56, 216, 56, 416, 1080, 416, 1088, 608, 64, 584, 88, 48, 288, 40, 280, 600, 496, 608, 464, 40, 656, 48, 664, 600, 856, 592, 856, 40, 1056, 40, 1064, 600, 56, 608)])
 
 [node name="Node2D" type="Node2D" unique_id=1828576556]
 script = ExtResource("1_olpnp")
@@ -137,34 +132,23 @@ shape = SubResource("RectangleShape2D_b7wio")
 position = Vector2(576, 672)
 shape = SubResource("RectangleShape2D_spoxl")
 
-[node name="Police2" parent="." unique_id=1770078643 node_paths=PackedStringArray("taxi", "patrol_points_parent") instance=ExtResource("3_0jtq1")]
-position = Vector2(1088, 544)
-taxi = NodePath("../Taxi")
-patrol_points_parent = NodePath("../PatrolPoints")
-
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="Police2" unique_id=1581579036]
-target_desired_distance = 30.0
-debug_enabled = true
-
-[node name="RayCast2D" type="RayCast2D" parent="Police2" unique_id=1871773030]
-position = Vector2(-120, -608)
-
 [node name="Taxi" parent="." unique_id=1008124676 instance=ExtResource("2_olpnp")]
 position = Vector2(288, 600)
 
 [node name="Camera2D" type="Camera2D" parent="Taxi" unique_id=1710147831]
 ignore_rotation = false
+zoom = Vector2(5, 5)
 
-[node name="Police" parent="." unique_id=1610496004 node_paths=PackedStringArray("taxi", "patrol_points_parent") instance=ExtResource("3_0jtq1")]
+[node name="Police" parent="." unique_id=1610496004 instance=ExtResource("3_0jtq1")]
 position = Vector2(304, 608)
-taxi = NodePath("../Taxi")
-patrol_points_parent = NodePath("../PatrolPoints")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="Police" unique_id=1938616712]
 target_desired_distance = 30.0
 debug_enabled = true
 
-[node name="RayCast2D" type="RayCast2D" parent="Police" unique_id=245631460]
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=946291488]
+position = Vector2(16, -8)
+navigation_polygon = SubResource("NavigationPolygon_olpnp")
 
 [node name="PatrolPoints" type="Node2D" parent="." unique_id=1620557913]
 
@@ -209,33 +193,3 @@ position = Vector2(688, 608)
 
 [node name="Marker2D14" type="Marker2D" parent="PatrolPoints" unique_id=156746350]
 position = Vector2(856, 600)
-
-[node name="Marker2D15" type="Marker2D" parent="PatrolPoints" unique_id=625219912]
-position = Vector2(280, 232)
-
-[node name="Marker2D16" type="Marker2D" parent="PatrolPoints" unique_id=930797648]
-position = Vector2(488, 240)
-
-[node name="Marker2D17" type="Marker2D" parent="PatrolPoints" unique_id=2073346242]
-position = Vector2(696, 248)
-
-[node name="Marker2D18" type="Marker2D" parent="PatrolPoints" unique_id=1042951896]
-position = Vector2(872, 248)
-
-[node name="Marker2D19" type="Marker2D" parent="PatrolPoints" unique_id=2074899553]
-position = Vector2(856, 432)
-
-[node name="Marker2D20" type="Marker2D" parent="PatrolPoints" unique_id=1869323941]
-position = Vector2(304, 416)
-
-[node name="Marker2D21" type="Marker2D" parent="PatrolPoints" unique_id=131626992]
-position = Vector2(472, 424)
-
-[node name="Marker2D22" type="Marker2D" parent="PatrolPoints" unique_id=748270967]
-position = Vector2(688, 424)
-
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1986312232]
-navigation_polygon = SubResource("NavigationPolygon_0jtq1")
-
-[node name="NavigationRegion2D2" type="NavigationRegion2D" parent="." unique_id=1815992396]
-navigation_polygon = SubResource("NavigationPolygon_xmh5c")
