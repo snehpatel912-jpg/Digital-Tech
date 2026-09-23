@@ -5,6 +5,17 @@
 [ext_resource type="PackedScene" uid="uid://k74qua0xbd2x" path="res://cars/police.tscn" id="3_0jtq1"]
 [ext_resource type="Texture2D" uid="uid://ccaffydfctv0r" path="res://cars/drift_texture-removebg-preview.png" id="4_g83ud"]
 [ext_resource type="Script" uid="uid://cxmgxyi5v782" path="res://scenes/slow_mo.gd" id="4_xmh5c"]
+[ext_resource type="Script" uid="uid://dthb721vh35r0" path="res://scenes/speedometer.gd" id="6_6j3wd"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_0jtq1"]
+vertices = PackedVector2Array(1142, 26, 1142, 638, 1026, 638, 1026, 62, 10, 26, 894, 62, 894, 638, 834, 638, 834, 62, 702, 62, 702, 638, 642, 638, 642, 62, 510, 62, 510, 638, 450, 638, 450, 62, 318, 62, 318, 638, 258, 638, 258, 62, 126, 62, 10, 638, 126, 638)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 0, 3, 5), PackedInt32Array(5, 6, 7, 8), PackedInt32Array(4, 5, 8), PackedInt32Array(4, 8, 9), PackedInt32Array(9, 10, 11, 12), PackedInt32Array(4, 9, 12), PackedInt32Array(4, 12, 13), PackedInt32Array(13, 14, 15, 16), PackedInt32Array(4, 13, 16), PackedInt32Array(4, 16, 17), PackedInt32Array(17, 18, 19, 20), PackedInt32Array(4, 17, 20), PackedInt32Array(4, 20, 21), PackedInt32Array(22, 4, 21, 23)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(0, 16, 0, 648, 136, 648, 136, 72, 248, 72, 248, 648, 328, 648, 328, 72, 440, 72, 440, 648, 520, 648, 520, 72, 632, 72, 632, 648, 712, 648, 712, 72, 824, 72, 824, 648, 904, 648, 904, 72, 1016, 72, 1016, 648, 1152, 648, 1152, 16)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_xmh5c"]
+vertices = PackedVector2Array(10.0234375, 25.992188, 1140.4922, 25.023438, 1135.3672, 61.03125, 126.046875, 61.890625, 10.5390625, 645.9922, 126.171875, 193.89063, 126.21875, 253.89063, 1126.1563, 193.03906, 1126.2188, 253.03906, 126.328125, 385.89063, 126.36719, 445.89063, 1142.3203, 385.02344, 1142.3672, 445.02344, 126.49219, 577.8906, 1142.5391, 645.02344, 1142.4766, 577.02344)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 0, 3, 5, 6), PackedInt32Array(7, 8, 6, 5), PackedInt32Array(4, 6, 9, 10), PackedInt32Array(9, 11, 12, 10), PackedInt32Array(4, 10, 13), PackedInt32Array(14, 4, 13, 15)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(0.013559414, 15.999994, 1152.0132, 15.023716, 1144.0607, 71.03048, 136.06097, 71.88472, 136.15588, 183.88469, 1136.1555, 183.03722, 1136.2234, 263.0372, 136.22368, 263.88464, 136.3186, 375.8846, 1152.3182, 375.0236, 1152.3861, 455.02356, 136.3864, 455.88458, 136.48131, 567.8846, 1152.481, 567.02356, 1152.5555, 655.0235, 0.555936, 655.99976)])
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_spoxl"]
 size = Vector2(1170, 36.5)
@@ -42,16 +53,6 @@ size = Vector2(128, 128)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kylad"]
 size = Vector2(128, 128)
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_0jtq1"]
-vertices = PackedVector2Array(1142, 26, 1142, 638, 1026, 638, 1026, 62, 10, 26, 894, 62, 894, 638, 834, 638, 834, 62, 702, 62, 702, 638, 642, 638, 642, 62, 510, 62, 510, 638, 450, 638, 450, 62, 318, 62, 318, 638, 258, 638, 258, 62, 126, 62, 10, 638, 126, 638)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 0, 3, 5), PackedInt32Array(5, 6, 7, 8), PackedInt32Array(4, 5, 8), PackedInt32Array(4, 8, 9), PackedInt32Array(9, 10, 11, 12), PackedInt32Array(4, 9, 12), PackedInt32Array(4, 12, 13), PackedInt32Array(13, 14, 15, 16), PackedInt32Array(4, 13, 16), PackedInt32Array(4, 16, 17), PackedInt32Array(17, 18, 19, 20), PackedInt32Array(4, 17, 20), PackedInt32Array(4, 20, 21), PackedInt32Array(22, 4, 21, 23)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(0, 16, 0, 648, 136, 648, 136, 72, 248, 72, 248, 648, 328, 648, 328, 72, 440, 72, 440, 648, 520, 648, 520, 72, 632, 72, 632, 648, 712, 648, 712, 72, 824, 72, 824, 648, 904, 648, 904, 72, 1016, 72, 1016, 648, 1152, 648, 1152, 16)])
-
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_xmh5c"]
-vertices = PackedVector2Array(10.0234375, 25.992188, 1140.4922, 25.023438, 1135.3672, 61.03125, 126.046875, 61.890625, 10.5390625, 645.9922, 126.171875, 193.89063, 126.21875, 253.89063, 1126.1563, 193.03906, 1126.2188, 253.03906, 126.328125, 385.89063, 126.36719, 445.89063, 1142.3203, 385.02344, 1142.3672, 445.02344, 126.49219, 577.8906, 1142.5391, 645.02344, 1142.4766, 577.02344)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 0, 3, 5, 6), PackedInt32Array(7, 8, 6, 5), PackedInt32Array(4, 6, 9, 10), PackedInt32Array(9, 11, 12, 10), PackedInt32Array(4, 10, 13), PackedInt32Array(14, 4, 13, 15)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(0.013559414, 15.999994, 1152.0132, 15.023716, 1144.0607, 71.03048, 136.06097, 71.88472, 136.15588, 183.88469, 1136.1555, 183.03722, 1136.2234, 263.0372, 136.22368, 263.88464, 136.3186, 375.8846, 1152.3182, 375.0236, 1152.3861, 455.02356, 136.3864, 455.88458, 136.48131, 567.8846, 1152.481, 567.02356, 1152.5555, 655.0235, 0.555936, 655.99976)])
-
 [sub_resource type="Gradient" id="Gradient_6j3wd"]
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_hp87r"]
@@ -84,84 +85,6 @@ offset_right = 1152.0
 offset_bottom = 656.0
 color = Color(0, 0, 0, 1)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1695314958]
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=324552118]
-position = Vector2(576, -2.25)
-shape = SubResource("RectangleShape2D_spoxl")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=1905243356]
-position = Vector2(960, 128.75)
-shape = SubResource("RectangleShape2D_olpnp")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=639361583]
-position = Vector2(193.4375, 128.75)
-shape = SubResource("RectangleShape2D_0jtq1")
-
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D" unique_id=1651022330]
-position = Vector2(384.5, 128)
-shape = SubResource("RectangleShape2D_xmh5c")
-
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D" unique_id=890895083]
-position = Vector2(766.875, 127.9375)
-shape = SubResource("RectangleShape2D_g83ud")
-
-[node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D" unique_id=550436011]
-position = Vector2(576, 127.5)
-shape = SubResource("RectangleShape2D_6j3wd")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1001821461]
-position = Vector2(-28.25, 336)
-shape = SubResource("RectangleShape2D_b7wio")
-
-[node name="CollisionShape2D8" type="CollisionShape2D" parent="StaticBody2D" unique_id=1176622292]
-position = Vector2(192, 320)
-shape = SubResource("RectangleShape2D_hp87r")
-
-[node name="CollisionShape2D9" type="CollisionShape2D" parent="StaticBody2D" unique_id=733403311]
-position = Vector2(385.5, 320)
-shape = SubResource("RectangleShape2D_mvjca")
-
-[node name="CollisionShape2D10" type="CollisionShape2D" parent="StaticBody2D" unique_id=797131529]
-position = Vector2(576, 320)
-shape = SubResource("RectangleShape2D_u7exc")
-
-[node name="CollisionShape2D11" type="CollisionShape2D" parent="StaticBody2D" unique_id=1821454564]
-position = Vector2(768, 320)
-shape = SubResource("RectangleShape2D_02ush")
-
-[node name="CollisionShape2D12" type="CollisionShape2D" parent="StaticBody2D" unique_id=1916137789]
-position = Vector2(960, 320)
-shape = SubResource("RectangleShape2D_kylad")
-
-[node name="CollisionShape2D13" type="CollisionShape2D" parent="StaticBody2D" unique_id=1457101839]
-position = Vector2(192.25, 512)
-shape = SubResource("RectangleShape2D_hp87r")
-
-[node name="CollisionShape2D14" type="CollisionShape2D" parent="StaticBody2D" unique_id=47764585]
-position = Vector2(385.5, 512)
-shape = SubResource("RectangleShape2D_mvjca")
-
-[node name="CollisionShape2D15" type="CollisionShape2D" parent="StaticBody2D" unique_id=1687855010]
-position = Vector2(576, 513)
-shape = SubResource("RectangleShape2D_u7exc")
-
-[node name="CollisionShape2D16" type="CollisionShape2D" parent="StaticBody2D" unique_id=940791377]
-position = Vector2(768, 513)
-shape = SubResource("RectangleShape2D_02ush")
-
-[node name="CollisionShape2D17" type="CollisionShape2D" parent="StaticBody2D" unique_id=1421095807]
-position = Vector2(960, 513)
-shape = SubResource("RectangleShape2D_kylad")
-
-[node name="CollisionShape2D18" type="CollisionShape2D" parent="StaticBody2D" unique_id=44219741]
-position = Vector2(1178.125, 336.75)
-shape = SubResource("RectangleShape2D_b7wio")
-
-[node name="CollisionShape2D19" type="CollisionShape2D" parent="StaticBody2D" unique_id=1030227293]
-position = Vector2(576, 676.5)
-shape = SubResource("RectangleShape2D_spoxl")
-
 [node name="Police" parent="." unique_id=1610496004 node_paths=PackedStringArray("taxi", "patrol_points_parent") instance=ExtResource("3_0jtq1")]
 position = Vector2(304, 608)
 taxi = NodePath("../Taxi")
@@ -193,24 +116,6 @@ navigation_polygon = SubResource("NavigationPolygon_0jtq1")
 position = Vector2(16, 0)
 rotation = 0.0008474635
 navigation_polygon = SubResource("NavigationPolygon_xmh5c")
-
-[node name="Taxi" parent="." unique_id=1008124676 instance=ExtResource("2_olpnp")]
-position = Vector2(287.99997, 608)
-scale = Vector2(0.99999994, 0.99999994)
-
-[node name="Camera2D" type="Camera2D" parent="Taxi" unique_id=1640645697]
-rotation = 1.5707964
-ignore_rotation = false
-zoom = Vector2(2, 2)
-
-[node name="GPUParticles2D" type="GPUParticles2D" parent="Taxi" unique_id=1497999741]
-position = Vector2(-2.8871e-08, 3.0517578e-05)
-rotation = 1.571744
-scale = Vector2(0.100000024, 0.100000024)
-emitting = false
-amount = 30
-texture = ExtResource("4_g83ud")
-process_material = SubResource("ParticleProcessMaterial_02ush")
 
 [node name="ColorRect2" type="ColorRect" parent="." unique_id=1758342176]
 offset_left = 128.0
@@ -391,3 +296,117 @@ position = Vector2(664, 416)
 
 [node name="Marker2D23" type="Marker2D" parent="PatrolPoints" unique_id=1755006962]
 position = Vector2(1072, 48)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1695314958]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=324552118]
+position = Vector2(576, -2.25)
+shape = SubResource("RectangleShape2D_spoxl")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=1905243356]
+position = Vector2(960, 128.75)
+shape = SubResource("RectangleShape2D_olpnp")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=639361583]
+position = Vector2(193.4375, 128.75)
+shape = SubResource("RectangleShape2D_0jtq1")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D" unique_id=1651022330]
+position = Vector2(384.5, 128)
+shape = SubResource("RectangleShape2D_xmh5c")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D" unique_id=890895083]
+position = Vector2(766.875, 127.9375)
+shape = SubResource("RectangleShape2D_g83ud")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D" unique_id=550436011]
+position = Vector2(576, 127.5)
+shape = SubResource("RectangleShape2D_6j3wd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1001821461]
+position = Vector2(-28.25, 336)
+shape = SubResource("RectangleShape2D_b7wio")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="StaticBody2D" unique_id=1176622292]
+position = Vector2(192, 320)
+shape = SubResource("RectangleShape2D_hp87r")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="StaticBody2D" unique_id=733403311]
+position = Vector2(385.5, 320)
+shape = SubResource("RectangleShape2D_mvjca")
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="StaticBody2D" unique_id=797131529]
+position = Vector2(576, 320)
+shape = SubResource("RectangleShape2D_u7exc")
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="StaticBody2D" unique_id=1821454564]
+position = Vector2(768, 320)
+shape = SubResource("RectangleShape2D_02ush")
+
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="StaticBody2D" unique_id=1916137789]
+position = Vector2(960, 320)
+shape = SubResource("RectangleShape2D_kylad")
+
+[node name="CollisionShape2D13" type="CollisionShape2D" parent="StaticBody2D" unique_id=1457101839]
+position = Vector2(192.25, 512)
+shape = SubResource("RectangleShape2D_hp87r")
+
+[node name="CollisionShape2D14" type="CollisionShape2D" parent="StaticBody2D" unique_id=47764585]
+position = Vector2(385.5, 512)
+shape = SubResource("RectangleShape2D_mvjca")
+
+[node name="CollisionShape2D15" type="CollisionShape2D" parent="StaticBody2D" unique_id=1687855010]
+position = Vector2(576, 513)
+shape = SubResource("RectangleShape2D_u7exc")
+
+[node name="CollisionShape2D16" type="CollisionShape2D" parent="StaticBody2D" unique_id=940791377]
+position = Vector2(768, 513)
+shape = SubResource("RectangleShape2D_02ush")
+
+[node name="CollisionShape2D17" type="CollisionShape2D" parent="StaticBody2D" unique_id=1421095807]
+position = Vector2(960, 513)
+shape = SubResource("RectangleShape2D_kylad")
+
+[node name="CollisionShape2D18" type="CollisionShape2D" parent="StaticBody2D" unique_id=44219741]
+position = Vector2(1178.125, 336.75)
+shape = SubResource("RectangleShape2D_b7wio")
+
+[node name="CollisionShape2D19" type="CollisionShape2D" parent="StaticBody2D" unique_id=1030227293]
+position = Vector2(576, 676.5)
+shape = SubResource("RectangleShape2D_spoxl")
+
+[node name="Taxi" parent="." unique_id=1008124676 instance=ExtResource("2_olpnp")]
+position = Vector2(287.99997, 608)
+scale = Vector2(0.9999999, 0.9999999)
+
+[node name="Camera2D" type="Camera2D" parent="Taxi" unique_id=1640645697]
+rotation = 1.5707964
+ignore_rotation = false
+zoom = Vector2(2, 2)
+
+[node name="Control" type="Control" parent="Taxi/Camera2D" unique_id=286504251]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -287.42374
+offset_top = -608.2727
+offset_right = -247.42374
+offset_bottom = -568.2727
+
+[node name="Label" type="Label" parent="Taxi/Camera2D/Control" unique_id=1473278997 node_paths=PackedStringArray("target_body")]
+layout_mode = 0
+offset_left = 7.294985
+offset_top = 744.0073
+offset_right = 47.294983
+offset_bottom = 767.0073
+text = "0"
+script = ExtResource("6_6j3wd")
+target_body = NodePath("../../..")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Taxi" unique_id=1497999741]
+position = Vector2(-2.8871e-08, 3.0517578e-05)
+rotation = 1.571744
+scale = Vector2(0.100000024, 0.100000024)
+emitting = false
+amount = 30
+texture = ExtResource("4_g83ud")
+process_material = SubResource("ParticleProcessMaterial_02ush")
