@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://b3kvlgm64niuy"]
+
+[ext_resource type="PackedScene" uid="uid://c7nlokxwjdylp" path="res://cars/top-downcar.tscn" id="1_wtcfe"]
+
+[node name="Node2D" type="Node2D" unique_id=1067103984]
+
+[node name="Node2D" parent="." unique_id=2112317681 instance=ExtResource("1_wtcfe")]
+position = Vector2(264, 152)

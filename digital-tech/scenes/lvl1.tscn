@@ -3,9 +3,11 @@
 [ext_resource type="Script" uid="uid://cijbx5c0dmlql" path="res://scenes/lvl_1.gd" id="1_olpnp"]
 [ext_resource type="PackedScene" uid="uid://c7nlokxwjdylp" path="res://cars/top-downcar.tscn" id="2_olpnp"]
 [ext_resource type="PackedScene" uid="uid://k74qua0xbd2x" path="res://cars/police.tscn" id="3_0jtq1"]
+[ext_resource type="Texture2D" uid="uid://ccaffydfctv0r" path="res://cars/drift_texture-removebg-preview.png" id="4_g83ud"]
+[ext_resource type="Script" uid="uid://cxmgxyi5v782" path="res://scenes/slow_mo.gd" id="4_xmh5c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_spoxl"]
-size = Vector2(1170, 50)
+size = Vector2(1170, 36.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_olpnp"]
 size = Vector2(128, 126.5)
@@ -23,13 +25,13 @@ size = Vector2(130.25, 128.125)
 size = Vector2(128, 129)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b7wio"]
-size = Vector2(65, 718.5)
+size = Vector2(52.25, 718.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hp87r"]
-size = Vector2(129, 125)
+size = Vector2(128.5, 128)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mvjca"]
-size = Vector2(125, 130)
+size = Vector2(125, 128)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u7exc"]
 size = Vector2(128, 128)
@@ -41,14 +43,37 @@ size = Vector2(128, 128)
 size = Vector2(128, 128)
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_0jtq1"]
-vertices = PackedVector2Array(294, 603.78906, 274, 599.78906, 274, 54.4375, 294, 54.140625, 101.85156, 598, 49.859375, 598, 42.140625, 57.851563, 94.00781, 57.09375, 677.85156, 590, 658, 590, 658, 48.789063, 669.8828, 48.617188, 1117.8594, 590, 1042.1484, 590, 1050.1484, 46, 1110.1406, 42.140625, 870, 46, 870, 590, 849.8594, 590, 841.85156, 46.09375, 494, 588.2031, 466, 583.53125, 466, 51.609375, 494, 51.203125)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(8, 9, 10, 11), PackedInt32Array(12, 13, 14, 15), PackedInt32Array(16, 17, 18, 19), PackedInt32Array(16, 19, 15), PackedInt32Array(15, 14, 16), PackedInt32Array(20, 21, 22, 23)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(32, 48, 40, 608, 112, 608, 104, 56, 264, 56, 264, 608, 304, 616, 304, 56, 456, 56, 456, 592, 504, 600, 504, 56, 648, 56, 648, 600, 688, 600, 680, 56, 832, 56, 840, 600, 880, 600, 880, 56, 1040, 56, 1032, 600, 1128, 600, 1120, 32)])
+vertices = PackedVector2Array(1142, 26, 1142, 638, 1026, 638, 1026, 62, 10, 26, 894, 62, 894, 638, 834, 638, 834, 62, 702, 62, 702, 638, 642, 638, 642, 62, 510, 62, 510, 638, 450, 638, 450, 62, 318, 62, 318, 638, 258, 638, 258, 62, 126, 62, 10, 638, 126, 638)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 0, 3, 5), PackedInt32Array(5, 6, 7, 8), PackedInt32Array(4, 5, 8), PackedInt32Array(4, 8, 9), PackedInt32Array(9, 10, 11, 12), PackedInt32Array(4, 9, 12), PackedInt32Array(4, 12, 13), PackedInt32Array(13, 14, 15, 16), PackedInt32Array(4, 13, 16), PackedInt32Array(4, 16, 17), PackedInt32Array(17, 18, 19, 20), PackedInt32Array(4, 17, 20), PackedInt32Array(4, 20, 21), PackedInt32Array(22, 4, 21, 23)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(0, 16, 0, 648, 136, 648, 136, 72, 248, 72, 248, 648, 328, 648, 328, 72, 440, 72, 440, 648, 520, 648, 520, 72, 632, 72, 632, 648, 712, 648, 712, 72, 824, 72, 824, 648, 904, 648, 904, 72, 1016, 72, 1016, 648, 1152, 648, 1152, 16)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_xmh5c"]
-vertices = PackedVector2Array(1111.5391, 210.0625, 1116.2031, 238, 102, 238, 110, 218.07813, 1118, 49.921875, 1118, 53.921875, 110, 45.921875, 33.859375, 42.070313, 26.132813, 629.9219, 102, 402, 1102, 402, 1102, 430, 100.828125, 430, 119.046875, 594, 1102, 594, 1102, 622.0703)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(8, 7, 6, 2), PackedInt32Array(9, 10, 11, 12), PackedInt32Array(13, 14, 15, 8), PackedInt32Array(12, 13, 8), PackedInt32Array(6, 3, 2), PackedInt32Array(12, 8, 2, 9)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(24, 32, 1128, 40, 1128, 64, 120, 56, 120, 208, 1120, 200, 1128, 248, 112, 248, 112, 392, 1112, 392, 1112, 440, 112, 440, 128, 584, 1112, 584, 1112, 632, 16, 640)])
+vertices = PackedVector2Array(10.0234375, 25.992188, 1140.4922, 25.023438, 1135.3672, 61.03125, 126.046875, 61.890625, 10.5390625, 645.9922, 126.171875, 193.89063, 126.21875, 253.89063, 1126.1563, 193.03906, 1126.2188, 253.03906, 126.328125, 385.89063, 126.36719, 445.89063, 1142.3203, 385.02344, 1142.3672, 445.02344, 126.49219, 577.8906, 1142.5391, 645.02344, 1142.4766, 577.02344)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 0, 3, 5, 6), PackedInt32Array(7, 8, 6, 5), PackedInt32Array(4, 6, 9, 10), PackedInt32Array(9, 11, 12, 10), PackedInt32Array(4, 10, 13), PackedInt32Array(14, 4, 13, 15)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(0.013559414, 15.999994, 1152.0132, 15.023716, 1144.0607, 71.03048, 136.06097, 71.88472, 136.15588, 183.88469, 1136.1555, 183.03722, 1136.2234, 263.0372, 136.22368, 263.88464, 136.3186, 375.8846, 1152.3182, 375.0236, 1152.3861, 455.02356, 136.3864, 455.88458, 136.48131, 567.8846, 1152.481, 567.02356, 1152.5555, 655.0235, 0.555936, 655.99976)])
+
+[sub_resource type="Gradient" id="Gradient_6j3wd"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_hp87r"]
+gradient = SubResource("Gradient_6j3wd")
+
+[sub_resource type="Curve" id="Curve_mvjca"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_u7exc"]
+curve = SubResource("Curve_mvjca")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_02ush"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 10.0
+initial_velocity_max = 30.0
+gravity = Vector3(0, 98, 0)
+scale_min = 0.0
+scale_max = 0.02
+scale_curve = SubResource("CurveTexture_u7exc")
+color_ramp = SubResource("GradientTexture1D_hp87r")
 
 [node name="Node2D" type="Node2D" unique_id=1828576556]
 script = ExtResource("1_olpnp")
@@ -62,7 +87,7 @@ color = Color(0, 0, 0, 1)
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1695314958]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=324552118]
-position = Vector2(576, 0)
+position = Vector2(576, -2.25)
 shape = SubResource("RectangleShape2D_spoxl")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=1905243356]
@@ -86,7 +111,7 @@ position = Vector2(576, 127.5)
 shape = SubResource("RectangleShape2D_6j3wd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1001821461]
-position = Vector2(-24, 336)
+position = Vector2(-28.25, 336)
 shape = SubResource("RectangleShape2D_b7wio")
 
 [node name="CollisionShape2D8" type="CollisionShape2D" parent="StaticBody2D" unique_id=1176622292]
@@ -94,7 +119,7 @@ position = Vector2(192, 320)
 shape = SubResource("RectangleShape2D_hp87r")
 
 [node name="CollisionShape2D9" type="CollisionShape2D" parent="StaticBody2D" unique_id=733403311]
-position = Vector2(385.5, 319)
+position = Vector2(385.5, 320)
 shape = SubResource("RectangleShape2D_mvjca")
 
 [node name="CollisionShape2D10" type="CollisionShape2D" parent="StaticBody2D" unique_id=797131529]
@@ -110,7 +135,7 @@ position = Vector2(960, 320)
 shape = SubResource("RectangleShape2D_kylad")
 
 [node name="CollisionShape2D13" type="CollisionShape2D" parent="StaticBody2D" unique_id=1457101839]
-position = Vector2(192, 513)
+position = Vector2(192.25, 512)
 shape = SubResource("RectangleShape2D_hp87r")
 
 [node name="CollisionShape2D14" type="CollisionShape2D" parent="StaticBody2D" unique_id=47764585]
@@ -130,30 +155,12 @@ position = Vector2(960, 513)
 shape = SubResource("RectangleShape2D_kylad")
 
 [node name="CollisionShape2D18" type="CollisionShape2D" parent="StaticBody2D" unique_id=44219741]
-position = Vector2(1176, 336.75)
+position = Vector2(1178.125, 336.75)
 shape = SubResource("RectangleShape2D_b7wio")
 
 [node name="CollisionShape2D19" type="CollisionShape2D" parent="StaticBody2D" unique_id=1030227293]
-position = Vector2(576, 672)
+position = Vector2(576, 676.5)
 shape = SubResource("RectangleShape2D_spoxl")
-
-[node name="Police2" parent="." unique_id=1770078643 node_paths=PackedStringArray("taxi", "patrol_points_parent") instance=ExtResource("3_0jtq1")]
-position = Vector2(1088, 544)
-taxi = NodePath("../Taxi")
-patrol_points_parent = NodePath("../PatrolPoints")
-
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="Police2" unique_id=1581579036]
-target_desired_distance = 30.0
-debug_enabled = true
-
-[node name="RayCast2D" type="RayCast2D" parent="Police2" unique_id=1871773030]
-position = Vector2(-120, -608)
-
-[node name="Taxi" parent="." unique_id=1008124676 instance=ExtResource("2_olpnp")]
-position = Vector2(288, 600)
-
-[node name="Camera2D" type="Camera2D" parent="Taxi" unique_id=1710147831]
-ignore_rotation = false
 
 [node name="Police" parent="." unique_id=1610496004 node_paths=PackedStringArray("taxi", "patrol_points_parent") instance=ExtResource("3_0jtq1")]
 position = Vector2(304, 608)
@@ -166,7 +173,155 @@ debug_enabled = true
 
 [node name="RayCast2D" type="RayCast2D" parent="Police" unique_id=245631460]
 
+[node name="Police2" parent="." unique_id=1770078643 node_paths=PackedStringArray("taxi", "patrol_points_parent") instance=ExtResource("3_0jtq1")]
+position = Vector2(680, 624)
+taxi = NodePath("../Taxi")
+patrol_points_parent = NodePath("../PatrolPoints")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="Police2" unique_id=1838996411]
+target_desired_distance = 30.0
+debug_enabled = true
+
+[node name="RayCast2D" type="RayCast2D" parent="Police2" unique_id=482228136]
+position = Vector2(8, 16)
+target_position = Vector2(0, -24)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1986312232]
+navigation_polygon = SubResource("NavigationPolygon_0jtq1")
+
+[node name="NavigationRegion2D2" type="NavigationRegion2D" parent="." unique_id=1815992396]
+position = Vector2(16, 0)
+rotation = 0.0008474635
+navigation_polygon = SubResource("NavigationPolygon_xmh5c")
+
+[node name="Taxi" parent="." unique_id=1008124676 instance=ExtResource("2_olpnp")]
+position = Vector2(287.99997, 608)
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="Camera2D" type="Camera2D" parent="Taxi" unique_id=1640645697]
+rotation = 1.5707964
+ignore_rotation = false
+zoom = Vector2(2, 2)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Taxi" unique_id=1497999741]
+position = Vector2(-2.8871e-08, 3.0517578e-05)
+rotation = 1.571744
+scale = Vector2(0.100000024, 0.100000024)
+emitting = false
+amount = 30
+texture = ExtResource("4_g83ud")
+process_material = SubResource("ParticleProcessMaterial_02ush")
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=1758342176]
+offset_left = 128.0
+offset_top = 64.0
+offset_right = 256.0
+offset_bottom = 192.0
+color = Color(0.30692267, 0.3069227, 0.3069227, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="ColorRect2" unique_id=1345092635]
+layout_mode = 0
+offset_left = 192.0
+offset_right = 320.0
+offset_bottom = 128.0
+color = Color(0.30692267, 0.3069227, 0.3069227, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="ColorRect2/ColorRect2" unique_id=419063481]
+layout_mode = 0
+offset_left = 192.0
+offset_right = 320.0
+offset_bottom = 128.0
+color = Color(0.30692267, 0.3069227, 0.3069227, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="ColorRect2/ColorRect2/ColorRect2" unique_id=1996493197]
+layout_mode = 0
+offset_left = 192.0
+offset_right = 320.0
+offset_bottom = 128.0
+color = Color(0.30692267, 0.3069227, 0.3069227, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="ColorRect2/ColorRect2/ColorRect2/ColorRect2" unique_id=2006315349]
+layout_mode = 0
+offset_left = 192.0
+offset_right = 320.0
+offset_bottom = 128.0
+color = Color(0.30692267, 0.3069227, 0.3069227, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="." unique_id=898919866]
+offset_left = 128.0
+offset_top = 256.0
+offset_right = 256.0
+offset_bottom = 384.0
+color = Color(0.2784314, 0.2784314, 0.2784314, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="ColorRect3" unique_id=1952480816]
+layout_mode = 0
+offset_left = 192.0
+offset_right = 320.0
+offset_bottom = 128.0
+color = Color(0.2784314, 0.2784314, 0.2784314, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="ColorRect3/ColorRect3" unique_id=1070148119]
+layout_mode = 0
+offset_left = 192.0
+offset_right = 320.0
+offset_bottom = 128.0
+color = Color(0.2784314, 0.2784314, 0.2784314, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="ColorRect3/ColorRect3/ColorRect3" unique_id=1331058952]
+layout_mode = 0
+offset_left = 192.0
+offset_right = 320.0
+offset_bottom = 128.0
+color = Color(0.2784314, 0.2784314, 0.2784314, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="ColorRect3/ColorRect3/ColorRect3/ColorRect3" unique_id=238450734]
+layout_mode = 0
+offset_left = 192.0
+offset_right = 320.0
+offset_bottom = 128.0
+color = Color(0.2784314, 0.2784314, 0.2784314, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="." unique_id=381360859]
+offset_left = 128.0
+offset_top = 448.0
+offset_right = 256.0
+offset_bottom = 576.0
+color = Color(0.2784314, 0.2784314, 0.2784314, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="ColorRect4" unique_id=1217320429]
+layout_mode = 0
+offset_left = 192.0
+offset_right = 312.0
+offset_bottom = 128.0
+color = Color(0.2784314, 0.2784314, 0.2784314, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="ColorRect4/ColorRect4" unique_id=960448601]
+layout_mode = 0
+offset_left = 192.0
+offset_right = 320.0
+offset_bottom = 128.0
+color = Color(0.2784314, 0.2784314, 0.2784314, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="ColorRect4/ColorRect4/ColorRect4" unique_id=1239667417]
+layout_mode = 0
+offset_left = 192.0
+offset_right = 320.0
+offset_bottom = 128.0
+color = Color(0.2784314, 0.2784314, 0.2784314, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="ColorRect4/ColorRect4/ColorRect4/ColorRect4" unique_id=1908891971]
+layout_mode = 0
+offset_left = 192.0
+offset_right = 320.0
+offset_bottom = 128.0
+color = Color(0.2784314, 0.2784314, 0.2784314, 1)
+
+[node name="slow mo" type="Node" parent="." unique_id=1978491012]
+script = ExtResource("4_xmh5c")
+
 [node name="PatrolPoints" type="Node2D" parent="." unique_id=1620557913]
+position = Vector2(8, 0)
 
 [node name="Marker2D" type="Marker2D" parent="PatrolPoints" unique_id=1299391530]
 position = Vector2(40, 72)
@@ -187,55 +342,52 @@ position = Vector2(280, 56)
 position = Vector2(472, 48)
 
 [node name="Marker2D7" type="Marker2D" parent="PatrolPoints" unique_id=1436544191]
-position = Vector2(672, 56)
+position = Vector2(664, 48)
 
 [node name="Marker2D8" type="Marker2D" parent="PatrolPoints" unique_id=1729534048]
-position = Vector2(856, 56)
+position = Vector2(856, 48)
 
 [node name="Marker2D9" type="Marker2D" parent="PatrolPoints" unique_id=1956524291]
-position = Vector2(1088, 224)
+position = Vector2(1080, 224)
 
 [node name="Marker2D10" type="Marker2D" parent="PatrolPoints" unique_id=1816160741]
-position = Vector2(1096, 408)
+position = Vector2(1088, 416)
 
 [node name="Marker2D11" type="Marker2D" parent="PatrolPoints" unique_id=996690213]
 position = Vector2(1080, 608)
 
 [node name="Marker2D12" type="Marker2D" parent="PatrolPoints" unique_id=79843970]
-position = Vector2(480, 608)
+position = Vector2(472, 608)
 
 [node name="Marker2D13" type="Marker2D" parent="PatrolPoints" unique_id=854985826]
-position = Vector2(688, 608)
+position = Vector2(672, 608)
 
 [node name="Marker2D14" type="Marker2D" parent="PatrolPoints" unique_id=156746350]
-position = Vector2(856, 600)
+position = Vector2(856, 608)
 
 [node name="Marker2D15" type="Marker2D" parent="PatrolPoints" unique_id=625219912]
-position = Vector2(280, 232)
+position = Vector2(280, 224)
 
 [node name="Marker2D16" type="Marker2D" parent="PatrolPoints" unique_id=930797648]
-position = Vector2(488, 240)
+position = Vector2(480, 224)
 
 [node name="Marker2D17" type="Marker2D" parent="PatrolPoints" unique_id=2073346242]
-position = Vector2(696, 248)
+position = Vector2(664, 224)
 
 [node name="Marker2D18" type="Marker2D" parent="PatrolPoints" unique_id=1042951896]
-position = Vector2(872, 248)
+position = Vector2(856, 224)
 
 [node name="Marker2D19" type="Marker2D" parent="PatrolPoints" unique_id=2074899553]
-position = Vector2(856, 432)
+position = Vector2(856, 416)
 
 [node name="Marker2D20" type="Marker2D" parent="PatrolPoints" unique_id=1869323941]
-position = Vector2(304, 416)
+position = Vector2(280, 416)
 
 [node name="Marker2D21" type="Marker2D" parent="PatrolPoints" unique_id=131626992]
-position = Vector2(472, 424)
+position = Vector2(472, 416)
 
 [node name="Marker2D22" type="Marker2D" parent="PatrolPoints" unique_id=748270967]
-position = Vector2(688, 424)
+position = Vector2(664, 416)
 
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1986312232]
-navigation_polygon = SubResource("NavigationPolygon_0jtq1")
-
-[node name="NavigationRegion2D2" type="NavigationRegion2D" parent="." unique_id=1815992396]
-navigation_polygon = SubResource("NavigationPolygon_xmh5c")
+[node name="Marker2D23" type="Marker2D" parent="PatrolPoints" unique_id=1755006962]
+position = Vector2(1072, 48)

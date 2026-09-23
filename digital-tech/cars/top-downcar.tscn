@@ -3,15 +3,22 @@
 [ext_resource type="Script" uid="uid://cqlfms5wl5h0o" path="res://cars/car.gd" id="1_0tdvo"]
 [ext_resource type="Texture2D" uid="uid://c8tc55bqhlhj0" path="res://cars/images-removebg-preview.png" id="1_g3twm"]
 
-[node name="Node2D" type="CharacterBody2D" unique_id=1008124676]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0tdvo"]
+size = Vector2(6, 11)
+
+[node name="Node2D" type="CharacterBody2D" unique_id=2112317681]
+rotation = -1.571744
 script = ExtResource("1_0tdvo")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=895189710]
-position = Vector2(-14.333429, 22.02164)
-scale = Vector2(0.084069625, 0.07977853)
-polygon = PackedVector2Array(139.76923, -224.15704, 140.76923, -238.15704, 139.76923, -269.15704, 139.76923, -284.15698, 133.76923, -282.15698, 139.76923, -288.15698, 139.76923, -309.15692, 141.76923, -317.15692, 150.76923, -325.15692, 157.76923, -328.15692, 170.76923, -329.15692, 183.76923, -328.15692, 190.76923, -325.15692, 197.76923, -319.15692, 200.76923, -314.15692, 201.76923, -308.15692, 201.76923, -288.15698, 207.76924, -282.15698, 201.76923, -284.15698, 201.76923, -256.15704, 200.76923, -238.15704, 201.76923, -225.15704, 199.76923, -218.15704, 191.76923, -212.15704, 183.76923, -211.15704, 156.76923, -211.15704, 143.76923, -215.15704)
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=156002314]
 
-[node name="ImagesRemovebgPreview" type="Sprite2D" parent="CollisionPolygon2D" unique_id=736365281]
-position = Vector2(168.47757, -271.34372)
-scale = Vector2(0.37791026, 0.30569136)
+[node name="ImagesRemovebgPreview" type="Sprite2D" parent="." unique_id=736365281]
+position = Vector2(-0.16958332, 0.37423706)
+rotation = 1.5807142
+scale = Vector2(0.031770773, 0.024387607)
 texture = ExtResource("1_g3twm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=559238380]
+position = Vector2(0, 0.5)
+rotation = 1.5696067
+shape = SubResource("RectangleShape2D_0tdvo")

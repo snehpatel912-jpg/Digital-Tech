@@ -16,9 +16,9 @@ enum State {
 @export var turn_speed: float = 4.0
 
 @export_category("Vision")
-@export var view_distance: float = 500.0
-@export var view_angle: float = 100.0
-@export var chase_memory: float = 4.0
+@export var view_distance: float = 1000.00
+@export var view_angle: float = 400.00
+@export var chase_memory: float = 10.0
 
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
 @onready var vision_ray: RayCast2D = $RayCast2D
@@ -101,7 +101,7 @@ func _can_see_taxi() -> bool:
 	if distance_to_taxi > view_distance:
 		return false
 
-	# This assumes the police-car image faces upward.
+	# This assumes the cop faces upward.
 	var forward_direction := Vector2.UP.rotated(rotation)
 	var angle_to_taxi: float = absf(
 	forward_direction.angle_to(direction_to_taxi.normalized())
