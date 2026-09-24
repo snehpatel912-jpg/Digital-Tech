@@ -100,3 +100,11 @@ func calculate_steering(delta):
 			
 		rotation = new_heading.angle()
 		
+
+
+func _on_collectionplace_body_entered(body: Node2D) -> void:
+	pass # Replace with function body.
+
+
+func _on_dropoff_body_entered(body: Node2D) -> void:
+	pass # Replace with function body.

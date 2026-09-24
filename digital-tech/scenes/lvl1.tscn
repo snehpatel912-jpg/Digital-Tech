@@ -6,6 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://ccaffydfctv0r" path="res://cars/drift_texture-removebg-preview.png" id="4_g83ud"]
 [ext_resource type="Script" uid="uid://cxmgxyi5v782" path="res://scenes/slow_mo.gd" id="4_xmh5c"]
 [ext_resource type="Script" uid="uid://dthb721vh35r0" path="res://scenes/speedometer.gd" id="6_6j3wd"]
+[ext_resource type="Script" uid="uid://bkj2wpesv8nqr" path="res://scenes/collectionplace.gd" id="7_hp87r"]
+[ext_resource type="Script" uid="uid://cinwcy411v5t4" path="res://scenes/quest.gd" id="7_u7exc"]
+[ext_resource type="Script" uid="uid://dwkcfb0h5753f" path="res://scenes/dropoff.gd" id="8_mvjca"]
+[ext_resource type="Script" uid="uid://nvlrnhvbju0j" path="res://scenes/stopwatch.gd" id="10_02ush"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_0jtq1"]
 vertices = PackedVector2Array(1142, 26, 1142, 638, 1026, 638, 1026, 62, 10, 26, 894, 62, 894, 638, 834, 638, 834, 62, 702, 62, 702, 638, 642, 638, 642, 62, 510, 62, 510, 638, 450, 638, 450, 62, 318, 62, 318, 638, 258, 638, 258, 62, 126, 62, 10, 638, 126, 638)
@@ -76,6 +80,12 @@ scale_max = 0.02
 scale_curve = SubResource("CurveTexture_u7exc")
 color_ramp = SubResource("GradientTexture1D_hp87r")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yq2hi"]
+size = Vector2(18.5, 34.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_28l0p"]
+size = Vector2(25, 33)
+
 [node name="Node2D" type="Node2D" unique_id=1828576556]
 script = ExtResource("1_olpnp")
 
@@ -87,7 +97,7 @@ color = Color(0, 0, 0, 1)
 
 [node name="Police" parent="." unique_id=1610496004 node_paths=PackedStringArray("taxi", "patrol_points_parent") instance=ExtResource("3_0jtq1")]
 position = Vector2(304, 608)
-taxi = NodePath("../Taxi")
+taxi = NodePath("../Quest/Taxi")
 patrol_points_parent = NodePath("../PatrolPoints")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="Police" unique_id=1938616712]
@@ -98,7 +108,7 @@ debug_enabled = true
 
 [node name="Police2" parent="." unique_id=1770078643 node_paths=PackedStringArray("taxi", "patrol_points_parent") instance=ExtResource("3_0jtq1")]
 position = Vector2(680, 624)
-taxi = NodePath("../Taxi")
+taxi = NodePath("../Quest/Taxi")
 patrol_points_parent = NodePath("../PatrolPoints")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="Police2" unique_id=1838996411]
@@ -375,16 +385,19 @@ shape = SubResource("RectangleShape2D_b7wio")
 position = Vector2(576, 676.5)
 shape = SubResource("RectangleShape2D_spoxl")
 
-[node name="Taxi" parent="." unique_id=1008124676 instance=ExtResource("2_olpnp")]
+[node name="Quest" type="Node2D" parent="." unique_id=1290865852]
+script = ExtResource("7_u7exc")
+
+[node name="Taxi" parent="Quest" unique_id=1008124676 instance=ExtResource("2_olpnp")]
 position = Vector2(287.99997, 608)
 scale = Vector2(0.9999999, 0.9999999)
 
-[node name="Camera2D" type="Camera2D" parent="Taxi" unique_id=1640645697]
+[node name="Camera2D" type="Camera2D" parent="Quest/Taxi" unique_id=1640645697]
 rotation = 1.5707964
 ignore_rotation = false
 zoom = Vector2(2, 2)
 
-[node name="Control" type="Control" parent="Taxi/Camera2D" unique_id=286504251]
+[node name="Control" type="Control" parent="Quest/Taxi/Camera2D" unique_id=286504251]
 layout_mode = 3
 anchors_preset = 0
 offset_left = -287.42374
@@ -392,7 +405,7 @@ offset_top = -608.2727
 offset_right = -247.42374
 offset_bottom = -568.2727
 
-[node name="Label" type="Label" parent="Taxi/Camera2D/Control" unique_id=1473278997 node_paths=PackedStringArray("target_body")]
+[node name="Label" type="Label" parent="Quest/Taxi/Camera2D/Control" unique_id=1473278997 node_paths=PackedStringArray("target_body")]
 layout_mode = 0
 offset_left = 7.294985
 offset_top = 744.0073
@@ -402,7 +415,21 @@ text = "0"
 script = ExtResource("6_6j3wd")
 target_body = NodePath("../../..")
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="Taxi" unique_id=1497999741]
+[node name="Control2" type="Control" parent="Quest/Taxi/Camera2D" unique_id=552098391]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 208.15157
+offset_top = -159.80284
+offset_right = 248.15157
+offset_bottom = -119.80284
+script = ExtResource("10_02ush")
+
+[node name="StopwatchLabel" type="Label" parent="Quest/Taxi/Camera2D/Control2" unique_id=1890829810]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Quest/Taxi" unique_id=1497999741]
 position = Vector2(-2.8871e-08, 3.0517578e-05)
 rotation = 1.571744
 scale = Vector2(0.100000024, 0.100000024)
@@ -410,3 +437,39 @@ emitting = false
 amount = 30
 texture = ExtResource("4_g83ud")
 process_material = SubResource("ParticleProcessMaterial_02ush")
+
+[node name="Dropoff" type="Area2D" parent="Quest" unique_id=618463235]
+visible = false
+monitoring = false
+script = ExtResource("8_mvjca")
+
+[node name="Sprite2D" type="Sprite2D" parent="Quest/Dropoff" unique_id=1927738852]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quest/Dropoff" unique_id=1842730979]
+position = Vector2(888, 560)
+shape = SubResource("RectangleShape2D_yq2hi")
+
+[node name="ColorRect" type="ColorRect" parent="Quest/Dropoff" unique_id=1068268122]
+offset_left = 872.0
+offset_top = 544.0
+offset_right = 894.0
+offset_bottom = 579.0
+color = Color(0.9999997, 0.1860193, 0.20730609, 1)
+
+[node name="Collectionplace" type="Area2D" parent="Quest" unique_id=216940855]
+script = ExtResource("7_hp87r")
+
+[node name="Sprite2D" type="Sprite2D" parent="Quest/Collectionplace" unique_id=634765496]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quest/Collectionplace" unique_id=53918641]
+position = Vector2(8, 32)
+shape = SubResource("RectangleShape2D_28l0p")
+
+[node name="ColorRect" type="ColorRect" parent="Quest/Collectionplace" unique_id=868616101]
+offset_top = 16.0
+offset_right = 22.0
+offset_bottom = 49.0
+color = Color(0, 0.5679093, 0.3087711, 1)
+
+[connection signal="body_entered" from="Quest/Dropoff" to="Quest/Taxi" method="_on_dropoff_body_entered"]
+[connection signal="body_entered" from="Quest/Collectionplace" to="Quest/Taxi" method="_on_collectionplace_body_entered"]
