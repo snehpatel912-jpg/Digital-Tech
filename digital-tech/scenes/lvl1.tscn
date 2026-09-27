@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c7nlokxwjdylp" path="res://cars/top-downcar.tscn" id="7_02ush"]
 [ext_resource type="Script" uid="uid://bkj2wpesv8nqr" path="res://scenes/collectionplace.gd" id="7_hp87r"]
 [ext_resource type="Script" uid="uid://cinwcy411v5t4" path="res://scenes/quest.gd" id="7_u7exc"]
+[ext_resource type="Script" uid="uid://csslcwcv55ldw" path="res://scenes/speedoemeter.gd" id="8_6oc1e"]
 [ext_resource type="Script" uid="uid://dwkcfb0h5753f" path="res://scenes/dropoff.gd" id="8_mvjca"]
 [ext_resource type="Script" uid="uid://nvlrnhvbju0j" path="res://scenes/stopwatch.gd" id="10_02ush"]
 [ext_resource type="Script" uid="uid://cja510poopasl" path="res://scenes/health_bar.gd" id="10_6oc1e"]
@@ -66,6 +67,8 @@ size = Vector2(18.5, 34.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_28l0p"]
 size = Vector2(25, 33)
+
+[sub_resource type="LabelSettings" id="LabelSettings_sh3n3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2tpkn"]
 bg_color = Color(0.63177943, 0.197016, 0.19205818, 1)
@@ -448,6 +451,23 @@ scale = Vector2(1.0000001, 1.0000001)
 ignore_rotation = false
 zoom = Vector2(2, 2)
 
+[node name="Control" type="Control" parent="Taxi/Camera2D" unique_id=1415457288]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Speedoemeter" type="Label" parent="Taxi/Camera2D/Control" unique_id=1381093041 node_paths=PackedStringArray("target_node")]
+layout_mode = 0
+offset_left = -280.09085
+offset_top = 95.73464
+offset_right = -240.09085
+offset_bottom = 118.73464
+text = "0 Kp/h"
+label_settings = SubResource("LabelSettings_sh3n3")
+script = ExtResource("8_6oc1e")
+target_node = NodePath("../../..")
+
 [node name="Control2" type="Control" parent="Taxi/Camera2D" unique_id=552098391]
 layout_mode = 3
 anchors_preset = 0
@@ -464,13 +484,13 @@ offset_bottom = 23.0
 
 [node name="HealthBar" type="ProgressBar" parent="Taxi/Camera2D" unique_id=912849725]
 offset_left = -280.12115
-offset_top = 127.7346
+offset_top = 127.73462
 offset_right = -161.18402
-offset_bottom = 154.73459
+offset_bottom = 154.73462
 theme_override_styles/background = SubResource("StyleBoxFlat_2tpkn")
 theme_override_styles/fill = SubResource("StyleBoxFlat_6oc1e")
 step = 1.0
-value = 10.0
+value = 100.0
 show_percentage = false
 script = ExtResource("10_6oc1e")
 
