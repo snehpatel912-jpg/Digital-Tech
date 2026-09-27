@@ -35,6 +35,10 @@ var repath_timer: float = 0.0
 var stuck_timer: float = 0.0
 var previous_position: Vector2
 
+var taxi_in_range: bool = false
+var damage_timer: float = 0.0
+var damage_cooldown: float = 0.5
+
 
 func _ready() -> void:
 	previous_position = global_position
@@ -49,13 +53,20 @@ func _ready() -> void:
 	await get_tree().physics_frame
 
 	_choose_random_patrol_point()
-
+	NavigationServer2D.set_debug_enabled(false)
+	
 
 func _physics_process(delta: float) -> void:
 	if taxi == null:
 		velocity = Vector2.ZERO
 		return
+	
+	if taxi_in_range:
+		damage_timer -= delta
 
+		if damage_timer <= 0.0:
+			taxi.take_damage(10)
+			damage_timer = damage_cooldown
 	var taxi_visible := _can_see_taxi()
 
 	if taxi_visible:
@@ -190,3 +201,13 @@ func _check_if_stuck(delta: float) -> void:
 		navigation_agent.target_position = last_seen_position
 	else:
 		_choose_random_patrol_point()
+
+func _on_body_entered(body):
+	if body.name == "Taxi":
+		taxi_in_range = true
+		damage_timer = 0.0
+
+
+func _on_body_exited(body):
+	if body.name == "Taxi":
+		taxi_in_range = false

@@ -2,9 +2,11 @@
 
 [ext_resource type="Texture2D" uid="uid://b5emxufaphi0s" path="res://scenes/Screenshot 2026-06-16 090407.png" id="1_5mbse"]
 [ext_resource type="Script" uid="uid://bui0gn4b0vicb" path="res://scenes/mainmenu.gd" id="1_natt5"]
-[ext_resource type="Script" uid="uid://dehjul0mr14ne" path="res://scenes/settingsbutton.gd" id="3_r3g3c"]
 [ext_resource type="AudioStream" uid="uid://bf84tusbdok4a" path="res://scenes/freesound_community-video-game-music-loop-27629 (1).mp3" id="4_s5g8n"]
 [ext_resource type="Script" uid="uid://cqm6rlk1fc587" path="res://scenes/game_audio.gd" id="5_7yvfd"]
+[ext_resource type="FontFile" uid="uid://3f0q311edvr4" path="res://cars/Bebas_Neue/BebasNeue-Regular.ttf" id="5_85riq"]
+[ext_resource type="Script" uid="uid://ctnjc6ov8lkdp" path="res://scenes/playbutton.gd" id="6_wf3n4"]
+[ext_resource type="Script" uid="uid://bu14qt0kwwcj2" path="res://scenes/go_to_settings.gd" id="7_h73c4"]
 
 [node name="Node2D" type="Node2D" unique_id=545497987]
 script = ExtResource("1_natt5")
@@ -15,35 +17,9 @@ offset_bottom = 652.0
 color = Color(0.9607843, 0.6509804, 0.13725491, 1)
 
 [node name="Screenshot20260616090407" type="Sprite2D" parent="ColorRect" unique_id=1343294080]
-position = Vector2(578.00006, 342)
+position = Vector2(573.99994, 340.99997)
 scale = Vector2(0.6041667, 0.6342593)
 texture = ExtResource("1_5mbse")
-
-[node name="settings" type="Button" parent="ColorRect" unique_id=16825961]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 0
-offset_left = 637.0
-offset_top = 425.0
-offset_right = 731.0
-offset_bottom = 472.0
-script = ExtResource("3_r3g3c")
-
-[node name="Button2" type="Button" parent="ColorRect" unique_id=193131710]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 0
-offset_left = 559.0
-offset_top = 423.0
-offset_right = 631.0
-offset_bottom = 471.0
-
-[node name="play" type="Button" parent="ColorRect" unique_id=2136484055]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 1
-anchors_preset = -1
-offset_left = 418.0
-offset_top = 423.0
-offset_right = 550.0
-offset_bottom = 472.0
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=98552404]
 stream = ExtResource("4_s5g8n")
@@ -53,7 +29,37 @@ max_distance = 4096.0
 attenuation = 1.2745587
 script = ExtResource("5_7yvfd")
 
-[connection signal="pressed" from="ColorRect/settings" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="ColorRect/settings" to="ColorRect/settings" method="_on_pressed"]
-[connection signal="pressed" from="ColorRect/Button2" to="." method="_on_button_2_pressed"]
-[connection signal="pressed" from="ColorRect/play" to="." method="_on_button_3_pressed"]
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=1367547980]
+offset_left = 407.0
+offset_top = 423.0
+offset_right = 729.0
+offset_bottom = 473.0
+color = Color(0.050980393, 0.050980393, 0.05882353, 1)
+
+[node name="Button" type="Button" parent="." unique_id=788115420]
+offset_left = 450.0
+offset_top = 429.0
+offset_right = 574.0
+offset_bottom = 464.0
+theme_override_colors/font_color = Color(0.9607843, 0.6509804, 0.13725491, 1)
+theme_override_colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_colors/font_outline_color = Color(0.92156863, 0.31764707, 0.26666668, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("5_85riq")
+text = "PLAY"
+script = ExtResource("6_wf3n4")
+
+[node name="Button2" type="Button" parent="." unique_id=1589501824]
+offset_left = 586.0
+offset_top = 429.0
+offset_right = 712.0
+offset_bottom = 462.0
+theme_override_colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_colors/font_outline_color = Color(0.7019608, 0.29411766, 0.08235294, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("5_85riq")
+text = "SETTINGS"
+script = ExtResource("7_h73c4")
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
+[connection signal="pressed" from="Button2" to="Button2" method="_on_pressed"]

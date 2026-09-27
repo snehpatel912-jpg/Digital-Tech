@@ -6,9 +6,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6ivuj"]
 size = Vector2(8, 16)
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1770078643 node_paths=PackedStringArray("popo_hurtbox")]
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1986497418]
 script = ExtResource("1_6ivuj")
-popo_hurtbox = NodePath(".")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1407487268]
 position = Vector2(-9.536743e-07, 0)
@@ -24,6 +23,3 @@ texture = ExtResource("1_q0itp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1915160606]
 shape = SubResource("RectangleShape2D_6ivuj")
-
-[connection signal="area_entered" from="Area2D" to="." method="_popo_touchy_you_v2"]
-[connection signal="body_entered" from="Area2D" to="." method="_popo_touchy_you_it_hurt"]

@@ -4,12 +4,16 @@
 [ext_resource type="PackedScene" uid="uid://k74qua0xbd2x" path="res://cars/police.tscn" id="3_0jtq1"]
 [ext_resource type="Texture2D" uid="uid://ccaffydfctv0r" path="res://cars/drift_texture-removebg-preview.png" id="4_g83ud"]
 [ext_resource type="Script" uid="uid://cxmgxyi5v782" path="res://scenes/slow_mo.gd" id="4_xmh5c"]
-[ext_resource type="Script" uid="uid://dthb721vh35r0" path="res://scenes/speedometer.gd" id="6_6j3wd"]
 [ext_resource type="PackedScene" uid="uid://c7nlokxwjdylp" path="res://cars/top-downcar.tscn" id="7_02ush"]
 [ext_resource type="Script" uid="uid://bkj2wpesv8nqr" path="res://scenes/collectionplace.gd" id="7_hp87r"]
 [ext_resource type="Script" uid="uid://cinwcy411v5t4" path="res://scenes/quest.gd" id="7_u7exc"]
 [ext_resource type="Script" uid="uid://dwkcfb0h5753f" path="res://scenes/dropoff.gd" id="8_mvjca"]
 [ext_resource type="Script" uid="uid://nvlrnhvbju0j" path="res://scenes/stopwatch.gd" id="10_02ush"]
+[ext_resource type="Script" uid="uid://cja510poopasl" path="res://scenes/health_bar.gd" id="10_6oc1e"]
+[ext_resource type="Script" uid="uid://beiwsv1fgc7pe" path="res://scenes/end_popuo.gd" id="11_2tpkn"]
+[ext_resource type="FontFile" uid="uid://3f0q311edvr4" path="res://cars/Bebas_Neue/BebasNeue-Regular.ttf" id="11_yq2hi"]
+[ext_resource type="Script" uid="uid://brk3chw66clw5" path="res://scenes/button.gd" id="12_2tpkn"]
+[ext_resource type="Script" uid="uid://pg5fasfvlra7" path="res://scenes/play_again.gd" id="13_6oc1e"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_0jtq1"]
 vertices = PackedVector2Array(1142, 26, 1142, 638, 1026, 638, 1026, 62, 10, 26, 894, 62, 894, 638, 834, 638, 834, 62, 702, 62, 702, 638, 642, 638, 642, 62, 510, 62, 510, 638, 450, 638, 450, 62, 318, 62, 318, 638, 258, 638, 258, 62, 126, 62, 10, 638, 126, 638)
@@ -63,6 +67,12 @@ size = Vector2(18.5, 34.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_28l0p"]
 size = Vector2(25, 33)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2tpkn"]
+bg_color = Color(0.63177943, 0.197016, 0.19205818, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6oc1e"]
+bg_color = Color(0.14291638, 0.41037172, 0.11995468, 1)
+
 [sub_resource type="Gradient" id="Gradient_6j3wd"]
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_hp87r"]
@@ -105,6 +115,7 @@ target_desired_distance = 30.0
 debug_enabled = true
 
 [node name="RayCast2D" type="RayCast2D" parent="Police" unique_id=245631460]
+visible = false
 
 [node name="Police2" parent="." unique_id=1770078643 node_paths=PackedStringArray("taxi", "patrol_points_parent") instance=ExtResource("3_0jtq1")]
 position = Vector2(680, 624)
@@ -118,6 +129,7 @@ simplify_path = true
 debug_enabled = true
 
 [node name="RayCast2D" type="RayCast2D" parent="Police2" unique_id=482228136]
+visible = false
 position = Vector2(8, 16)
 target_position = Vector2(0, -24)
 
@@ -436,24 +448,6 @@ scale = Vector2(1.0000001, 1.0000001)
 ignore_rotation = false
 zoom = Vector2(2, 2)
 
-[node name="Control" type="Control" parent="Taxi/Camera2D" unique_id=286504251]
-layout_mode = 3
-anchors_preset = 0
-offset_left = -287.42374
-offset_top = -608.2727
-offset_right = -247.42374
-offset_bottom = -568.2727
-
-[node name="speedometer" type="Label" parent="Taxi/Camera2D/Control" unique_id=1473278997 node_paths=PackedStringArray("target_body")]
-layout_mode = 0
-offset_left = 7.294985
-offset_top = 744.0073
-offset_right = 47.294983
-offset_bottom = 767.0073
-text = "0"
-script = ExtResource("6_6j3wd")
-target_body = NodePath("")
-
 [node name="Control2" type="Control" parent="Taxi/Camera2D" unique_id=552098391]
 layout_mode = 3
 anchors_preset = 0
@@ -468,6 +462,18 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 
+[node name="HealthBar" type="ProgressBar" parent="Taxi/Camera2D" unique_id=912849725]
+offset_left = -280.12115
+offset_top = 127.7346
+offset_right = -161.18402
+offset_bottom = 154.73459
+theme_override_styles/background = SubResource("StyleBoxFlat_2tpkn")
+theme_override_styles/fill = SubResource("StyleBoxFlat_6oc1e")
+step = 1.0
+value = 10.0
+show_percentage = false
+script = ExtResource("10_6oc1e")
+
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Taxi" unique_id=1497999741]
 rotation = -3.1396973
 scale = Vector2(0.10000004, 0.10000004)
@@ -475,3 +481,92 @@ emitting = false
 amount = 30
 texture = ExtResource("4_g83ud")
 process_material = SubResource("ParticleProcessMaterial_02ush")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1706010458]
+script = ExtResource("11_2tpkn")
+
+[node name="Panel" type="Panel" parent="CanvasLayer" unique_id=1072091451]
+visible = false
+offset_left = 272.0
+offset_top = 176.0
+offset_right = 800.0
+offset_bottom = 520.0
+
+[node name="Label" type="Label" parent="CanvasLayer/Panel" unique_id=1246268818]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 24.0
+offset_right = 448.0
+offset_bottom = 88.0
+theme_override_colors/font_outline_color = Color(0.6624138, 0.44598025, 0.1689331, 1)
+theme_override_constants/outline_size = 6
+theme_override_constants/shadow_outline_size = 1
+theme_override_fonts/font = ExtResource("11_yq2hi")
+theme_override_font_sizes/font_size = 40
+text = "DELIVERY SUCCESFUL"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="CanvasLayer/Panel" unique_id=2128922108]
+layout_mode = 0
+offset_left = 224.0
+offset_top = 96.0
+offset_right = 288.0
+offset_bottom = 132.0
+theme_override_colors/font_outline_color = Color(0.6627451, 0.44705883, 0.16862746, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("11_yq2hi")
+theme_override_font_sizes/font_size = 30
+text = "TIME:"
+horizontal_alignment = 1
+
+[node name="showcasingtime" type="Label" parent="CanvasLayer/Panel" unique_id=303101515]
+layout_mode = 0
+offset_left = 232.0
+offset_top = 144.0
+offset_right = 278.0
+offset_bottom = 175.0
+theme_override_colors/font_outline_color = Color(0.6627451, 0.44705883, 0.16862746, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("11_yq2hi")
+theme_override_font_sizes/font_size = 25
+text = "XX:XX"
+horizontal_alignment = 1
+
+[node name="Stars" type="Label" parent="CanvasLayer/Panel" unique_id=1331949097]
+layout_mode = 0
+offset_left = 232.0
+offset_top = 176.0
+offset_right = 282.0
+offset_bottom = 199.0
+text = "cvcvcv"
+
+[node name="Button" type="Button" parent="CanvasLayer/Panel" unique_id=86541825]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 208.0
+offset_right = 309.0
+offset_bottom = 240.0
+theme_override_colors/font_hover_color = Color(0.92535293, 0.9253528, 0.9253529, 1)
+theme_override_colors/font_outline_color = Color(0.7607843, 0.4745098, 0.33333334, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("11_yq2hi")
+theme_override_font_sizes/font_size = 18
+text = "PLAY AGAIN"
+script = ExtResource("12_2tpkn")
+
+[node name="Button2" type="Button" parent="CanvasLayer/Panel" unique_id=1683864219]
+layout_mode = 0
+offset_left = 176.0
+offset_top = 264.0
+offset_right = 328.0
+offset_bottom = 296.0
+theme_override_colors/font_hover_color = Color(0.92535293, 0.9253528, 0.9253529, 1)
+theme_override_colors/font_outline_color = Color(0.7607843, 0.4745098, 0.33333334, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("11_yq2hi")
+theme_override_font_sizes/font_size = 18
+text = "RETURN TO MENU"
+script = ExtResource("13_6oc1e")
+
+[connection signal="pressed" from="CanvasLayer/Panel/Button" to="CanvasLayer/Panel/Button" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel/Button2" to="CanvasLayer/Panel/Button2" method="_on_pressed"]

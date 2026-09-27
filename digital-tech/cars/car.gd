@@ -23,8 +23,10 @@ var killed = 0 # health when car dies
 @export var engine_power = 1000 # maximum froward drive force
 @export var braking = -450 # reverse and braking force
 @export var max_speed_reverse = 250 # maximum reverse speed
-@export var health = 100 # max health for the plater
 
+@onready var health_bar: ProgressBar = $Camera2D/HealthBar
+const max_health: int = 100
+var health: int = 100
 
 
 
@@ -123,3 +125,14 @@ func _on_collectionplace_body_entered(body: Node2D) -> void:
 func _on_dropoff_body_entered(body: Node2D) -> void:
 	pass 
 	
+func take_damage(amount: int):
+	health -= amount
+	health = max(health, 0)
+	health_bar.value = health
+	print("Taxi health: ", health)
+
+	if health <= 0:
+		die()
+		
+func die():
+	print("Taxi destroyed!")

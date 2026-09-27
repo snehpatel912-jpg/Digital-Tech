@@ -1,13 +1,16 @@
 extends Area2D
 
+@onready var stopwatch = get_tree().current_scene.get_node("Taxi/Camera2D/Control2")
 
-# Called when the node enters the scene tree for the first time.
+signal game_finished
+
 func _ready() -> void:
-	connect("body_entered", Callable(self, "_on_body_entered"))
+	body_entered.connect(_on_body_entered)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Taxi":
 		print("Item delivered successfully!")
-		queue_free()
+		
+		var final_time = stopwatch.stop_stopwatch()
+		
+		game_finished.emit(final_time)
