@@ -1,6 +1,6 @@
 extends Label
 
-@export var target_body: CharacterBody2D
+@export var target_body: taxi
 
 const PIXELS_TO_KMH = 0.036
 

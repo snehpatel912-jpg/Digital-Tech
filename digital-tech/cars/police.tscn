@@ -3,8 +3,12 @@
 [ext_resource type="Script" uid="uid://dh6mjhbfusect" path="res://cars/police.gd" id="1_6ivuj"]
 [ext_resource type="Texture2D" uid="uid://oksoibxbemiv" path="res://cars/images__3_-removebg-preview.png" id="1_q0itp"]
 
-[node name="Node2D" type="CharacterBody2D" unique_id=1770078643]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ivuj"]
+size = Vector2(8, 16)
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1770078643 node_paths=PackedStringArray("popo_hurtbox")]
 script = ExtResource("1_6ivuj")
+popo_hurtbox = NodePath(".")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1407487268]
 position = Vector2(-9.536743e-07, 0)
@@ -15,3 +19,11 @@ polygon = PackedVector2Array(0, -152, 48, -144, 72, -128, 72, -56, 88, -40, 72, 
 position = Vector2(-1.1706028e-06, 0)
 scale = Vector2(0.07199299, 0.049248975)
 texture = ExtResource("1_q0itp")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1240098063]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1915160606]
+shape = SubResource("RectangleShape2D_6ivuj")
+
+[connection signal="area_entered" from="Area2D" to="." method="_popo_touchy_you_v2"]
+[connection signal="body_entered" from="Area2D" to="." method="_popo_touchy_you_it_hurt"]

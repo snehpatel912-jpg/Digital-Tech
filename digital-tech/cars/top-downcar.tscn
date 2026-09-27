@@ -4,21 +4,33 @@
 [ext_resource type="Texture2D" uid="uid://c8tc55bqhlhj0" path="res://cars/images-removebg-preview.png" id="1_g3twm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0tdvo"]
-size = Vector2(6, 11)
+size = Vector2(5.994643, 10.504263)
 
-[node name="Node2D" type="CharacterBody2D" unique_id=2112317681]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1g51t"]
+size = Vector2(10.998096, 6.9943085)
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=2112317681 node_paths=PackedStringArray("player_hitbox") groups=["taxi"]]
 rotation = -1.571744
 script = ExtResource("1_0tdvo")
+player_hitbox = NodePath(".")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=156002314]
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=555509289]
+position = Vector2(-3.182263e-06, -0.0026712762)
+rotation = 1.5696067
+scale = Vector2(1.0000001, 1.0000001)
+shape = SubResource("RectangleShape2D_0tdvo")
+
 [node name="ImagesRemovebgPreview" type="Sprite2D" parent="." unique_id=736365281]
-position = Vector2(-0.16958332, 0.37423706)
+position = Vector2(-1.7763568e-15, 3.5527137e-15)
 rotation = 1.5807142
 scale = Vector2(0.031770773, 0.024387607)
 texture = ExtResource("1_g3twm")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=559238380]
-position = Vector2(0, 0.5)
-rotation = 1.5696067
-shape = SubResource("RectangleShape2D_0tdvo")
+[node name="Area2D" type="Area2D" parent="." unique_id=2139947322]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=598082073]
+position = Vector2(0, -6.7762636e-21)
+scale = Vector2(1.0000006, 1.0000006)
+shape = SubResource("RectangleShape2D_1g51t")

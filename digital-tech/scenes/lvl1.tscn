@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://mpq2xkqwdpgn"]
 
 [ext_resource type="Script" uid="uid://cijbx5c0dmlql" path="res://scenes/lvl_1.gd" id="1_olpnp"]
-[ext_resource type="PackedScene" uid="uid://c7nlokxwjdylp" path="res://cars/top-downcar.tscn" id="2_olpnp"]
 [ext_resource type="PackedScene" uid="uid://k74qua0xbd2x" path="res://cars/police.tscn" id="3_0jtq1"]
 [ext_resource type="Texture2D" uid="uid://ccaffydfctv0r" path="res://cars/drift_texture-removebg-preview.png" id="4_g83ud"]
 [ext_resource type="Script" uid="uid://cxmgxyi5v782" path="res://scenes/slow_mo.gd" id="4_xmh5c"]
 [ext_resource type="Script" uid="uid://dthb721vh35r0" path="res://scenes/speedometer.gd" id="6_6j3wd"]
+[ext_resource type="PackedScene" uid="uid://c7nlokxwjdylp" path="res://cars/top-downcar.tscn" id="7_02ush"]
 [ext_resource type="Script" uid="uid://bkj2wpesv8nqr" path="res://scenes/collectionplace.gd" id="7_hp87r"]
 [ext_resource type="Script" uid="uid://cinwcy411v5t4" path="res://scenes/quest.gd" id="7_u7exc"]
 [ext_resource type="Script" uid="uid://dwkcfb0h5753f" path="res://scenes/dropoff.gd" id="8_mvjca"]
@@ -57,6 +57,12 @@ size = Vector2(128, 128)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kylad"]
 size = Vector2(128, 128)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yq2hi"]
+size = Vector2(18.5, 34.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_28l0p"]
+size = Vector2(25, 33)
+
 [sub_resource type="Gradient" id="Gradient_6j3wd"]
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_hp87r"]
@@ -80,12 +86,6 @@ scale_max = 0.02
 scale_curve = SubResource("CurveTexture_u7exc")
 color_ramp = SubResource("GradientTexture1D_hp87r")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yq2hi"]
-size = Vector2(18.5, 34.5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_28l0p"]
-size = Vector2(25, 33)
-
 [node name="Node2D" type="Node2D" unique_id=1828576556]
 script = ExtResource("1_olpnp")
 
@@ -97,7 +97,7 @@ color = Color(0, 0, 0, 1)
 
 [node name="Police" parent="." unique_id=1610496004 node_paths=PackedStringArray("taxi", "patrol_points_parent") instance=ExtResource("3_0jtq1")]
 position = Vector2(304, 608)
-taxi = NodePath("../Quest/Taxi")
+taxi = NodePath("../Taxi")
 patrol_points_parent = NodePath("../PatrolPoints")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="Police" unique_id=1938616712]
@@ -108,11 +108,13 @@ debug_enabled = true
 
 [node name="Police2" parent="." unique_id=1770078643 node_paths=PackedStringArray("taxi", "patrol_points_parent") instance=ExtResource("3_0jtq1")]
 position = Vector2(680, 624)
-taxi = NodePath("../Quest/Taxi")
+taxi = NodePath("../Taxi")
 patrol_points_parent = NodePath("../PatrolPoints")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="Police2" unique_id=1838996411]
-target_desired_distance = 30.0
+path_desired_distance = 40.0
+target_desired_distance = 60.0
+simplify_path = true
 debug_enabled = true
 
 [node name="RayCast2D" type="RayCast2D" parent="Police2" unique_id=482228136]
@@ -307,6 +309,9 @@ position = Vector2(664, 416)
 [node name="Marker2D23" type="Marker2D" parent="PatrolPoints" unique_id=1755006962]
 position = Vector2(1072, 48)
 
+[node name="Marker2D24" type="Marker2D" parent="PatrolPoints" unique_id=1907908750]
+position = Vector2(184, 224)
+
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1695314958]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=324552118]
@@ -388,56 +393,6 @@ shape = SubResource("RectangleShape2D_spoxl")
 [node name="Quest" type="Node2D" parent="." unique_id=1290865852]
 script = ExtResource("7_u7exc")
 
-[node name="Taxi" parent="Quest" unique_id=1008124676 instance=ExtResource("2_olpnp")]
-position = Vector2(287.99997, 608)
-scale = Vector2(0.9999999, 0.9999999)
-
-[node name="Camera2D" type="Camera2D" parent="Quest/Taxi" unique_id=1640645697]
-rotation = 1.5707964
-ignore_rotation = false
-zoom = Vector2(2, 2)
-
-[node name="Control" type="Control" parent="Quest/Taxi/Camera2D" unique_id=286504251]
-layout_mode = 3
-anchors_preset = 0
-offset_left = -287.42374
-offset_top = -608.2727
-offset_right = -247.42374
-offset_bottom = -568.2727
-
-[node name="Label" type="Label" parent="Quest/Taxi/Camera2D/Control" unique_id=1473278997 node_paths=PackedStringArray("target_body")]
-layout_mode = 0
-offset_left = 7.294985
-offset_top = 744.0073
-offset_right = 47.294983
-offset_bottom = 767.0073
-text = "0"
-script = ExtResource("6_6j3wd")
-target_body = NodePath("../../..")
-
-[node name="Control2" type="Control" parent="Quest/Taxi/Camera2D" unique_id=552098391]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 208.15157
-offset_top = -159.80284
-offset_right = 248.15157
-offset_bottom = -119.80284
-script = ExtResource("10_02ush")
-
-[node name="StopwatchLabel" type="Label" parent="Quest/Taxi/Camera2D/Control2" unique_id=1890829810]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-
-[node name="GPUParticles2D" type="GPUParticles2D" parent="Quest/Taxi" unique_id=1497999741]
-position = Vector2(-2.8871e-08, 3.0517578e-05)
-rotation = 1.571744
-scale = Vector2(0.100000024, 0.100000024)
-emitting = false
-amount = 30
-texture = ExtResource("4_g83ud")
-process_material = SubResource("ParticleProcessMaterial_02ush")
-
 [node name="Dropoff" type="Area2D" parent="Quest" unique_id=618463235]
 visible = false
 monitoring = false
@@ -471,5 +426,52 @@ offset_right = 22.0
 offset_bottom = 49.0
 color = Color(0, 0.5679093, 0.3087711, 1)
 
-[connection signal="body_entered" from="Quest/Dropoff" to="Quest/Taxi" method="_on_dropoff_body_entered"]
-[connection signal="body_entered" from="Quest/Collectionplace" to="Quest/Taxi" method="_on_collectionplace_body_entered"]
+[node name="Taxi" parent="." unique_id=2112317681 instance=ExtResource("7_02ush")]
+position = Vector2(287.99997, 608)
+scale = Vector2(0.9999998, 0.9999998)
+
+[node name="Camera2D" type="Camera2D" parent="Taxi" unique_id=1640645697]
+rotation = 1.5707964
+scale = Vector2(1.0000001, 1.0000001)
+ignore_rotation = false
+zoom = Vector2(2, 2)
+
+[node name="Control" type="Control" parent="Taxi/Camera2D" unique_id=286504251]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -287.42374
+offset_top = -608.2727
+offset_right = -247.42374
+offset_bottom = -568.2727
+
+[node name="speedometer" type="Label" parent="Taxi/Camera2D/Control" unique_id=1473278997 node_paths=PackedStringArray("target_body")]
+layout_mode = 0
+offset_left = 7.294985
+offset_top = 744.0073
+offset_right = 47.294983
+offset_bottom = 767.0073
+text = "0"
+script = ExtResource("6_6j3wd")
+target_body = NodePath("")
+
+[node name="Control2" type="Control" parent="Taxi/Camera2D" unique_id=552098391]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 208.15157
+offset_top = -159.80284
+offset_right = 248.15157
+offset_bottom = -119.80284
+script = ExtResource("10_02ush")
+
+[node name="StopwatchLabel" type="Label" parent="Taxi/Camera2D/Control2" unique_id=1890829810]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Taxi" unique_id=1497999741]
+rotation = -3.1396973
+scale = Vector2(0.10000004, 0.10000004)
+emitting = false
+amount = 30
+texture = ExtResource("4_g83ud")
+process_material = SubResource("ParticleProcessMaterial_02ush")
